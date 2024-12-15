@@ -1,29 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = "https://dummyjson.com/products";
+const API_URL = 'https://dummyjson.com/products'; // Replace with your actual API endpoint
 
-// Fetch all products
-export const getProducts = async () => {
-  const response = await axios.get(BASE_URL);
-  return response.data.products;
+export const fetchProducts = async () => {
+  try {
+    const response = await axios.get(API_URL);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
 };
-
-// Search for products
-export const searchProducts = async (query) => {
-  const response = await axios.get(`${BASE_URL}/search`, {
-    params: { q: query },
-  });
-  return response.data.products;
-};
-
-// Fetch categories
-export const getCategories = async () => {
-  const response = await axios.get(`${BASE_URL}/categories`);
-  return response.data;
-};
-
-// Fetch products by category
-export const getProductsByCategory = async (category) => {
-  const response = await axios.get(`${BASE_URL}/category/${category}`);
-  return response.data.products;
-};
+ 

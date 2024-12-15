@@ -1,73 +1,40 @@
-import React, { useEffect, useState } from "react";
-import { getCategories, getProducts } from "../services/api";
-import Header from "../components/Header";
-import Banner from "../components/Banner";
-import ProductCard from "../components/ProductCard";
-import Pagination from "../components/Pagination";
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Header from "../components/Header";  
+import Banner from "../components/Banner";  
+import Footer from "../components/Footer"; 
+import ProductCard from '../components/ProductPage';
 
-const ProductPage = () => {
-  const [categories, setCategories] = useState([]);
+const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-
-  const productsPerPage = 12;
 
   useEffect(() => {
-    getCategories().then((data) => setCategories(data));
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://dummyjson.com/products');
+        setProducts(response.data.products);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
   }, []);
-
-  useEffect(() => {
-    getProducts(selectedCategory).then((data) => {
-      setProducts(data);
-      setTotalPages(Math.ceil(data.length / productsPerPage));
-    });
-  }, [selectedCategory]);
-
-  const handleCategoryChange = (e) => {
-    const category = e.target.value;
-    setSelectedCategory(category !== "Select Category" ? category : "");
-    setCurrentPage(1);
-  };
-
-  const displayedProducts = products.slice(
-    (currentPage - 1) * productsPerPage,
-    currentPage * productsPerPage
-  );
 
   return (
     <div>
-      <Header />
-      <Banner />
-      <div className="p-6">
-        <select
-          className="w-full p-2 border rounded-lg"
-          onChange={handleCategoryChange}
-        >
-          <option>Select Category</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-          {displayedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-        <Pagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
-        />
-      </div>
+               <Header />
+               <Banner />
+      <h2>Products</h2>
+      <ul>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </ul>
       <Footer />
     </div>
   );
 };
 
-export default ProductPage;
+export default ProductList;
+ 

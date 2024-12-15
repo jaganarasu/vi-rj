@@ -1,41 +1,35 @@
-import React from "react";
+import React from 'react';
+import '../styles/index.css'; // Assuming you have some custom styles here
 
-const ProductCard = ({ product }) => (
-  <div className="border rounded-lg shadow hover:shadow-lg">
-    <div className="relative">
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        className="w-full h-40 object-cover"
-      />
-      <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow">
-        <i className="far fa-heart"></i>
-      </button>
-    </div>
-    <div className="p-4">
-      <h3 className="font-bold text-lg">{product.title}</h3>
-      <p className="text-sm text-gray-600">
-        {product.description.length > 60
-          ? `${product.description.substring(0, 60)}...`
-          : product.description}
-      </p>
-      <div className="flex justify-between items-center mt-4">
-        <span className="font-bold text-xl text-pink-600">${product.price}</span>
-        <div className="flex items-center">
+const ProductCard = ({ product }) => {
+  return (
+    <div className="col-lg-3 col-md-4 col-sm-6 mb-4">
+      <div className="product-card">
+        <img
+          src={product.image}
+          className="card-img-top"
+          alt={product.title}
+        />
+        <div className="wishlist">
+          <i className="fa fa-heart"></i> {/* Font Awesome Heart Icon for Wishlist */}
+        </div>
+        <div className="product-title">{product.title}</div>
+        <div className="product-description">{product.description}</div>
+        <div className="product-price">Price: ${product.price}</div>
+        <div className="product-rating">
           {[...Array(5)].map((_, index) => (
-            <i
+            <span
               key={index}
-              className={`fas fa-star ${
-                index < Math.round(product.rating)
-                  ? "text-yellow-500"
-                  : "text-gray-300"
+              className={`fa fa-star${
+                index < product.rating ? '' : '-half-alt'
               }`}
-            ></i>
+            ></span>
           ))}
         </div>
+        <button className="btn btn-primary">Add to Cart</button>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProductCard;

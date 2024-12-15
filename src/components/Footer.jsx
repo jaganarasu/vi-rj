@@ -1,97 +1,111 @@
+
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import '../styles/Footer.css';  
+ 
 
-const Footer = () => (
-  <footer className="bg-gray-800 text-gray-300 py-8 mt-6">
-    <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Company Info */}
-      <div>
-        <h4 className="font-bold text-white mb-4">Company Info</h4>
-        <ul>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Social Responsibility
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Affiliate
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Fashion Blogger
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* Help & Support */}
-      <div>
-        <h4 className="font-bold text-white mb-4">Help & Support</h4>
-        <ul>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Shipping Info
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Returns
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              How to Order
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-pink-400">
-              Size Chart
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* Socials and Newsletter */}
-      <div>
-        <h4 className="font-bold text-white mb-4">Socials</h4>
-        <div className="flex space-x-4 mb-4">
-          <a href="#" className="hover:text-pink-400">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" className="hover:text-pink-400">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="hover:text-pink-400">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#" className="hover:text-pink-400">
-            <i className="fab fa-tiktok"></i>
-          </a>
+const Footer = () => {
+  return (
+    <div className="fb-bg">
+       <div className="container footer-section">
+      <div className="row">
+        <div className="col-md-2">
+          <h5>COMPANY INFO</h5>
+          <ul className="list-unstyled">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Social Responsibility</a></li>
+            <li><a href="#">Affiliate</a></li>
+            <li><a href="#">Fashion Blogger</a></li>
+          </ul>
         </div>
-
-        <h4 className="font-bold text-white mb-2">Subscribe</h4>
-        <form className="flex">
-          <input
-            type="email"
-            placeholder="Your email"
-            className="p-2 w-full rounded-l-lg focus:outline-none"
-          />
-          <button className="bg-pink-600 text-white px-4 rounded-r-lg">
-            Subscribe
-          </button>
-        </form>
+        <div className="col-md-2">
+          <h5>HELP &amp; SUPPORT</h5>
+          <ul className="list-unstyled">
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">How to Order</a></li>
+            <li><a href="#">How to Track</a></li>
+            <li><a href="#">Size Chart</a></li>
+          </ul>
+        </div>
+        <div className="col-md-2">
+          <h5>CUSTOMER CARE</h5>
+          <ul className="list-unstyled">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Payment</a></li>
+            <li><a href="#">Bonus Point</a></li>
+            <li><a href="#">Notices</a></li>
+          </ul>
+        </div>
+        <div className="col-md-6">
+      
+        <div className="row">
+                {/* Socials Section (Left) */}
+                <div className="col-md-6">
+                <h5>SOCIALS</h5>
+                <div className="social-icons">
+                    <i className="fa fa-facebook"></i>
+                    <i className="fa fa-twitter"></i>
+                    <i className="fa fa-instagram"></i>
+                    <i className="fa fa-tiktok"></i>
+                    <i className="fa fa-snapchat"></i>
+                </div>
+                </div>
+                <div className="col-md-6 text-end">
+                <h5>PLATFORMS</h5>
+      <i className="fa fa-android fa-2x"></i>
+      <i className="fa fa-apple fa-2x ms-3"></i>
+                </div>
+         
+                <div className="row mt-4">
+    <div className="col-12">
+      <h5 className="mt-4">SIGN UP</h5>
+      <div className="subscribe-input input-group mb-3">
+        <input className="form-control" placeholder="Your email" type="text" />
+        <button className="btn btn-dark" type="button">SUBSCRIBE</button>
       </div>
+      <p>
+        By clicking the SUBSCRIBE button, you are agreeing to our <a href="#">Privacy &amp; Cookie Policy</a>
+      </p>
     </div>
-    <div className="text-center text-sm mt-6">
-      <p>© {new Date().getFullYear()} MoBooM. All rights reserved.</p>
+  </div>
+
+
+        </div> 
+        </div>
+      
+      </div>
+      <div className="row mt-4">
+  {/* Left Column: Footer Links */}
+  <div className="col-md-6 text-start">
+    <div className="footer-bottom">
+      <p>©2010-2022 All Rights Reserved</p>
+      <a href="#">Privacy Center</a> | 
+      <a href="#">Privacy &amp; Cookie Policy</a> | 
+      <a href="#">Manage Cookies</a> | 
+      <a href="#">Terms &amp; Conditions</a> | 
+      <a href="#">Copyright Notice</a> | 
+      <a href="#">Imprint</a>
     </div>
-  </footer>
-);
+  </div>
+
+  {/* Right Column: WE ACCEPT */}
+  <div className="col-md-6">
+    <h5>WE ACCEPT</h5>
+    <img
+      src="..\src\image\pay.png" // Adjust the path to your image
+      alt="Payment Methods"
+      className="img-fluid" // Makes the image responsive
+    />
+  </div>
+</div>
+
+
+
+      
+    </div></div>  
+  );
+};
 
 export default Footer;

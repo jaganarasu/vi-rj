@@ -1,12 +1,14 @@
-import React from "react";
-import ProductPage from "./pages/ProductPage";
+ 
+import React from 'react';
+import ProductPage from './components/ProductPage'; 
+ 
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <ProductPage />
+    <div className="App">
+      <ProductPage />  
     </div>
   );
-};
+}
 
 export default App;
