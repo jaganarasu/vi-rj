@@ -94,9 +94,9 @@ const Footer = () => {
   <div className="col-md-6">
     <h5>WE ACCEPT</h5>
     <img
-      src="../src/image/pay.png" // Adjust the path to your image
+      src="../src/pay.png"  
       alt="Payment Methods"
-      className="img-fluid" // Makes the image responsive
+      className="img-fluid" 
     />
   </div>
 </div>
