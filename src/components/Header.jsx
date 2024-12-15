@@ -20,7 +20,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand href="#home">
           <img
-            src="../src/logo-moboom.png" // Adjust the path to your logo
+            src="https://github.com/jaganarasu/vi-rj/blob/main/src/image/logo-moboom.png?raw=true" // Adjust the path to your logo
             alt="MoBooM"
             className="h-12"
             style={{ height: '20px' }}
